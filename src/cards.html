@@ -111,162 +111,115 @@ mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-re
 .cta svg { width: 15px; height: 15px; }
 .cta.p { background: var(--primary); color: var(--on-primary); }
 .cta.y { background: var(--hl); color: var(--on-hl); }
+
+/* ---- lean profile pieces ---- */
+.banner2 { background: var(--bg); border: 2px solid var(--ink); border-radius: 22px; box-shadow: 6px 6px 0 var(--shadow); padding: 34px 34px 30px; display: grid; grid-template-columns: minmax(0, 1fr) 236px; gap: 22px; align-items: center; min-height: 262px; }
+.name { font: 800 92px/.9 B; letter-spacing: -.045em; }
+.tag { font: 800 27px/1.15 B; letter-spacing: -.02em; margin-top: 16px; color: var(--primary); }
+.loc { font: 500 11.5px/1.5 M; letter-spacing: .16em; text-transform: uppercase; color: var(--mut); margin-top: 20px; }
+.tiles { display: grid; gap: 14px; justify-items: end; }
+.tile { background: var(--paper); border: 2px solid var(--ink); border-radius: 16px; box-shadow: 4px 4px 0 var(--shadow); padding: 10px 14px; display: flex; align-items: center; gap: 12px; }
+.tile:nth-child(1) { transform: rotate(-2deg); background: var(--primary); }
+.tile:nth-child(2) { transform: rotate(1.4deg); background: var(--hl); margin-right: 18px; }
+.tile:nth-child(3) { transform: rotate(-.8deg); }
+.tile svg { color: var(--ink); }
+.tile:nth-child(1) svg { color: var(--on-primary); }
+.fetch { font: 400 13px/1 M; }
+.fetch .bar2 { display: flex; align-items: center; gap: 6px; margin-bottom: 14px; }
+.fetch .bar2 i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+.fetch .bar2 b { margin-left: 8px; font: 500 12px M; color: var(--primary); }
+.fetch .ln { display: flex; align-items: baseline; gap: 8px; padding: 6px 0; }
+.fetch .ln span { color: var(--mut); width: 76px; flex: none; }
+.fetch .ln em { flex: 1; border-bottom: 1.5px dotted var(--line); transform: translateY(-3px); min-width: 8px; }
+.fetch .ln b { font-weight: 500; font-size: 12.5px; text-align: right; max-width: 210px; line-height: 1.3; }
+.focus { list-style: none; padding: 0; display: grid; gap: 0; margin-top: 8px; }
+.focus li { display: flex; gap: 12px; align-items: flex-start; padding: 12px 0; border-top: 1.5px solid var(--line); font: 600 15.5px/1.35 H; }
+.focus li:first-child { border-top: 0; }
+.focus li::before { content: ''; flex: none; width: 10px; height: 10px; margin-top: 5px; border-radius: 3px; background: var(--primary); }
+.focus li:nth-child(2)::before { background: var(--hl); }
+.focus li:nth-child(3)::before { background: var(--bad); }
+.focus li:nth-child(4)::before { background: var(--ink); }
+.panel { min-height: 346px; display: flex; flex-direction: column; }
+.tools li, .tools li.u { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+
 </style>
 </head>
 <body>
 
-<!-- ============ banner ============ -->
-<div class="shot" data-shot="banner" style="width: 848px">
+<!-- banner: name, tagline, location only -->
+<div class="shot" data-shot="hero" style="width: 848px">
   <div class="tray" style="border-radius: 30px; padding: 7px">
-    <div class="banner">
+    <div class="banner2">
       <div>
-        <div class="b-top"><span class="pill">Mitul K M</span><span class="eyebrow">ML engineer · Bengaluru</span></div>
-        <p class="hi">Hi, I’m Mitul.</p>
-        <h1>I build things <mark>from the ground up</mark>.</h1>
-        <p class="b-sub">Hardware, models and services. I like the long slog of getting something to actually work, and I write down what didn’t.</p>
+        <div class="name">Mitul K M</div>
+        <div class="tag">building things <mark>from the ground up</mark></div>
+        <div class="loc">RV University · Bengaluru · ML · Security · Systems</div>
       </div>
-      <div class="cascade">
-        <div class="proof"><b>3</b><span>papers accepted<br>SPELLL · IEEE CAI · SWSIoT</span></div>
-        <div class="proof"><b>2</b><span>internships<br>Avianco · RV University</span></div>
-        <div class="proof"><b>8.27</b><span>CGPA out of 10<br>RV University</span></div>
+      <div class="tiles">
+        <div class="tile"><svg id="wheel" width="54" height="54" viewBox="0 0 54 54"></svg></div>
+        <div class="tile"><svg id="pix" width="54" height="54" viewBox="0 0 54 54"></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 6h13M10 2l4 4-4 4"/></svg><svg id="smooth" width="54" height="54" viewBox="0 0 54 54"></svg></div>
+        <div class="tile"><svg id="hist" width="150" height="54" viewBox="0 0 150 54"></svg></div>
       </div>
     </div>
   </div>
 </div>
 
-<!-- ============ papers ============ -->
-<div class="shot head" data-shot="head-papers" style="width: 424px">
-  <span class="eyebrow">Research</span>
-  <h2>Three papers</h2>
-  <p>Each card opens a case study with the numbers, where they come from, and what didn’t work.</p>
-</div>
-
-<div class="shot" data-shot="paper-fr3ak" style="width: 280px">
-  <div class="tray"><article class="card">
-    <div class="row"><span class="chip">Accepted · SPELLL 2026</span><span class="yr">2026</span></div>
-    <div class="art"><svg id="wheel" width="54" height="54" viewBox="0 0 54 54"></svg><span class="mono" style="font-size:10.5px;color:var(--mut)">8 emotion axes<br>per message</span></div>
-    <h3>FR3AK</h3>
-    <p class="sum">Maps every message to an 8-axis emotion vector, then tests whether the way those vectors drift helps spot manipulation.</p>
-    <div class="stats"><div><b>0.761</b><span>cosine, emotion encoder</span></div><div><b>0.711</b><span>AUROC vs 0.695 baseline</span></div></div>
-    <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
-  </article></div>
-</div>
-
-<div class="shot" data-shot="paper-c4ps" style="width: 280px">
-  <div class="tray"><article class="card">
-    <div class="row"><span class="chip">Accepted · IEEE CAI 2026</span><span class="yr">2026</span></div>
-    <div class="art"><svg id="pix" width="54" height="54" viewBox="0 0 54 54"></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 6h13M10 2l4 4-4 4"/></svg><svg id="smooth" width="54" height="54" viewBox="0 0 54 54"></svg></div>
-    <h3>C4PS</h3>
-    <p class="sum">Enhance, caption and translate an image in one command-line pipeline, running fully on your machine.</p>
-    <div class="stats"><div><b>0.2475</b><span>LPIPS vs 0.4091 bicubic</span></div><div><b>3</b><span>silent bugs found and fixed</span></div></div>
-    <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
-  </article></div>
-</div>
-
-<div class="shot" data-shot="paper-swsiot" style="width: 280px">
-  <div class="tray"><article class="card">
-    <div class="row"><span class="chip">Accepted · SWSIoT 2025</span><span class="yr">2025</span></div>
-    <div class="art"><svg id="hist" width="150" height="54" viewBox="0 0 150 54"></svg><span class="mono" style="font-size:10.5px;color:var(--mut)">byte entropy</span></div>
-    <h3>Static malware</h3>
-    <p class="sum">Two static pipelines classify Windows executables and URLs from cheap features, without running anything.</p>
-    <div class="stats"><div><b>96.4%</b><span>accuracy, PE files</span></div><div><b>93.5%</b><span>accuracy, URLs</span></div></div>
-    <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
-  </article></div>
-</div>
-
-<!-- ============ builds ============ -->
-<div class="shot head" data-shot="head-builds" style="width: 424px">
-  <span class="eyebrow">Things I made</span>
-  <h2>Builds</h2>
-  <p>Projects that run, including one that doesn’t fully work yet and says so.</p>
-</div>
-
-<div class="shot" data-shot="build-ids" style="width: 420px">
-  <div class="tray"><article class="card stackcard" style="padding: 20px">
-    <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip ink">Built and working</span><span class="yr">2026</span></div>
-    <h3 style="margin-top: 14px">Zero-day intrusion detector</h3>
-    <p class="sum">An Isolation Forest trained only on normal traffic, paired with TCP/IP rules, watching live network flows.</p>
-    <div class="bars" style="margin-top: 14px">
-      <div class="bar"><label><span>Isolation Forest, normal traffic only</span><b>87.2%</b></label><div class="t"><i style="width: 87.2%; background: var(--primary)"></i></div></div>
-      <div class="bar"><label><span>Random Forest, DDoS labels</span><b>44.5%</b></label><div class="t"><i style="width: 44.5%; background: var(--bad)"></i></div></div>
-    </div>
-    <p class="cap">Accuracy on PortScan never seen in training. ROC-AUC 0.964.</p>
-    <span class="go" style="margin-top: auto; align-self: flex-start">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
-  </article></div>
-</div>
-
-<div class="shot" data-shot="build-jenga" style="width: 420px">
-  <div class="tray"><article class="card half" style="min-height: 372px; padding: 20px">
-    <div>
-      <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip hl">Experimental</span><span class="yr">2026</span></div>
-      <h3 style="margin-top: 14px">Jenga tower tracker</h3>
-      <p class="sum">iPhone LiDAR and a marker mat paint each block green or red, live. Spotting the pulled block is still unsolved.</p>
-      <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
-    </div>
-    <div>
-      <div class="blocks" id="blocks"></div>
-      <p class="cap" style="text-align: center; white-space: nowrap">red: may not<br>green: may pull</p>
+<!-- profile fetch panel -->
+<div class="shot" data-shot="card-profile" style="width: 420px">
+  <div class="tray"><article class="card panel" style="padding: 22px 22px 18px">
+    <div class="fetch">
+      <div class="bar2"><i></i><i></i><i></i><b>mitul@rvu</b></div>
+      <div class="ln"><span>name</span><em></em><b>Mitul K M</b></div>
+      <div class="ln"><span>school</span><em></em><b>RV University</b></div>
+      <div class="ln"><span>base</span><em></em><b>Bengaluru, India</b></div>
+      <div class="ln"><span>focus</span><em></em><b>ML, security, systems</b></div>
+      <div class="ln"><span>code</span><em></em><b>Python, C, Java, SQL, JavaScript</b></div>
+      <div class="ln"><span>status</span><em></em><b>open to internships and full-time roles</b></div>
+      <div class="ln"><span>web</span><em></em><b>switchtwitch12345.github.io</b></div>
     </div>
   </article></div>
 </div>
 
-<div class="shot" data-shot="build-sravaani" style="width: 420px">
-  <div class="tray"><article class="card half" style="min-height: 372px; padding: 20px">
-    <div>
-      <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip ink">Built and working</span><span class="yr">2026</span></div>
-      <h3 style="margin-top: 14px">SraVaani Flow</h3>
-      <p class="sum">Voice dictation for English and Indian languages on a Mac. Transcribes locally and pastes where you were typing.</p>
-      <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
-    </div>
-    <div class="keys">
-      <div class="key">Shift+R<small>hold</small></div>
-      <div class="key">F9<small>toggle</small></div>
-      <div class="key">F11<small>paste</small></div>
+<!-- current focus -->
+<div class="shot" data-shot="card-focus" style="width: 420px">
+  <div class="tray"><article class="card panel" style="padding: 22px">
+    <div class="row" style="justify-content: flex-start"><span class="chip">Interests</span></div>
+    <h3 style="margin-top: 14px">What I’m into</h3>
+    <ul class="focus">
+      <li>Machine learning for language and vision</li>
+      <li>Security and anomaly detection</li>
+      <li>Hardware and systems that have to work for real</li>
+      <li>Starting things from scratch and sticking with them</li>
+    </ul>
+  </article></div>
+</div>
+
+<!-- tools -->
+<div class="shot" data-shot="stack-a" style="width: 420px">
+  <div class="tray"><article class="card panel" style="padding: 22px">
+    <div class="row" style="justify-content: flex-start"><span class="chip ink">Languages and tools</span></div>
+    <div class="tools" style="grid-template-columns: 1fr; gap: 16px; margin-top: 18px">
+      <div><h4>Languages</h4><ul><li>Python</li><li>C</li><li>Java</li><li>SQL</li><li>JavaScript</li></ul></div>
+      <div><h4>Machine learning</h4><ul><li>scikit-learn</li><li>XGBoost</li><li>Random Forest</li><li>Isolation Forest</li><li>KNN</li></ul></div>
+      <div><h4>Deep learning</h4><ul><li>PyTorch</li><li>TensorFlow</li><li>Keras</li><li>CNNs</li><li>LSTMs</li></ul></div>
     </div>
   </article></div>
 </div>
 
-<div class="shot" data-shot="build-more" style="width: 420px">
-  <div class="tray"><article class="card stackcard" style="padding: 20px">
-    <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip">Also built</span></div>
-    <h3 style="margin-top: 14px">Smaller projects</h3>
-    <div class="mini">
-      <div><b>Vision2Text</b><span class="yr">2025</span><p>Image captioning on Flickr8k. Xception features into an LSTM decoder, in TensorFlow and Keras.</p></div>
-      <div><b>CIFARNet</b><span class="yr">2025</span><p>A custom PyTorch CNN for CIFAR-10 with switchable BatchNorm to study training stability.</p></div>
-      <div><b>MailGuard</b><span class="yr">2024</span><p>Email spam classification with KNN, MinMax scaling and K-fold cross-validation.</p></div>
+<div class="shot" data-shot="stack-b" style="width: 420px">
+  <div class="tray"><article class="card panel" style="padding: 22px">
+    <div class="row" style="justify-content: flex-start"><span class="chip hl">And more</span></div>
+    <div class="tools" style="grid-template-columns: 1fr; gap: 16px; margin-top: 18px">
+      <div><h4>NLP</h4><ul><li>DeBERTa-v3</li><li>Transformers</li><li>BERT</li><li>Embeddings</li></ul></div>
+      <div><h4>Vision</h4><ul><li>OpenCV</li><li>Real-ESRGAN</li><li>GFPGAN</li><li>Xception</li></ul></div>
+      <div><h4>Systems</h4><ul><li>FastAPI</li><li>Docker</li><li>Scapy</li><li>Linux</li><li>AWS</li><li>GCP</li></ul></div>
     </div>
   </article></div>
 </div>
 
-<!-- ============ tools ============ -->
-<div class="shot head" data-shot="head-tools" style="width: 424px">
-  <span class="eyebrow">Tools</span>
-  <h2>What I work with</h2>
-  <p>Filled pills are used in the projects above.</p>
-</div>
-
-<div class="shot" data-shot="tools-a" style="width: 420px"><div class="tools" style="grid-template-columns: 1fr; gap: 16px">
-    <div><h4>Languages</h4><ul><li class="u">Python</li><li>C</li><li>Java</li><li>SQL</li><li>JavaScript</li></ul></div>
-    <div><h4>Machine learning</h4><ul><li class="u">scikit-learn</li><li class="u">XGBoost</li><li class="u">Random Forest</li><li class="u">Isolation Forest</li><li>KNN</li></ul></div>
-    <div><h4>Deep learning</h4><ul><li class="u">PyTorch</li><li class="u">TensorFlow</li><li class="u">Keras</li><li class="u">CNNs</li><li class="u">LSTMs</li></ul></div>
-  </div></div>
-
-<div class="shot" data-shot="tools-b" style="width: 420px"><div class="tools" style="grid-template-columns: 1fr; gap: 16px">
-    <div><h4>NLP</h4><ul><li class="u">DeBERTa-v3</li><li class="u">Transformers</li><li>BERT</li><li class="u">Embeddings</li></ul></div>
-    <div><h4>Vision</h4><ul><li class="u">OpenCV</li><li class="u">Real-ESRGAN</li><li class="u">GFPGAN</li><li class="u">Xception</li></ul></div>
-    <div><h4>Systems</h4><ul><li class="u">FastAPI</li><li class="u">Docker</li><li class="u">Scapy</li><li>Linux</li><li>AWS</li><li>GCP</li></ul></div>
-  </div></div>
-
-<!-- ============ contact ============ -->
-<div class="shot head" data-shot="head-contact" style="width: 424px">
-  <span class="eyebrow">Contact</span>
-  <h2>Let’s build something.</h2>
-  <p>Open to internships and full-time roles. Email is fastest.</p>
-</div>
-
-<div class="shot" data-shot="cta-site" style="width: 276px"><div class="cta p">Portfolio <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
-<div class="shot" data-shot="cta-email" style="width: 276px"><div class="cta y">Email me <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
-<div class="shot" data-shot="cta-linkedin" style="width: 276px"><div class="cta">LinkedIn <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
+<!-- links -->
+<div class="shot" data-shot="link-site" style="width: 276px"><div class="cta p">Portfolio <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
+<div class="shot" data-shot="link-linkedin" style="width: 276px"><div class="cta">LinkedIn <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
 
 <script>
 // small deterministic drawings used inside cards
@@ -300,9 +253,6 @@ function draw() {
   const h = document.getElementById('hist'); h.replaceChildren();
   const hs = [6, 9, 12, 8, 14, 11, 16, 10, 13, 18, 22, 30, 38, 46, 40, 24];
   hs.forEach((v, i) => el('rect', { x: i * 9.2, y: 52 - v, width: 7, height: v, rx: 1.5, fill: i >= 11 ? 'var(--bad)' : 'var(--primary)', opacity: i >= 11 ? 1 : 0.8 }, h));
-  // Jenga: 9 layers, bottom 6 green, top 3 red
-  const b = document.getElementById('blocks'); b.replaceChildren();
-  for (let r = 0; r < 9; r++) { const d = document.createElement('div'); d.style.paddingLeft = r % 2 ? '0' : '0'; for (let c = 0; c < 3; c++) { const i = document.createElement('i'); if (r < 3) i.className = 'r'; d.appendChild(i); } b.appendChild(d); }
 }
 draw();
 </script>

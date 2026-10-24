@@ -1,2 +1,8 @@
 node_modules
 .DS_Store
+# only the current artwork is tracked; older renders may still sit on disk
+assets/*
+!assets/hero-*.png
+!assets/card-*.png
+!assets/stack-*.png
+!assets/link-*.png
