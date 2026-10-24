@@ -47,7 +47,7 @@ h3 { font: 800 30px/1 B; letter-spacing: -.03em; margin: 12px 0 8px; }
 /* section heads */
 .head { padding: 26px 2px 4px; }
 .eyebrow { display: inline-block; font: 500 10.5px M; letter-spacing: .2em; text-transform: uppercase; padding: 4px 11px; border-radius: 99px; border: 1.5px solid var(--line); color: var(--mut); }
-.head h2 { font: 800 46px/1 B; letter-spacing: -.035em; margin: 12px 0 6px; }
+.head h2 { font: 800 40px/1 B; letter-spacing: -.035em; margin: 12px 0 6px; }
 .head p { font: 400 15px/1.4 H; color: var(--mut); }
 
 /* banner */
@@ -58,11 +58,11 @@ h3 { font: 800 30px/1 B; letter-spacing: -.03em; margin: 12px 0 8px; }
 .hi { font: 800 26px/1 B; letter-spacing: -.02em; color: var(--primary); margin-bottom: 8px; }
 .banner h1 { font: 800 64px/.94 B; letter-spacing: -.04em; }
 mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-repeat; color: var(--on-hl); padding: 0 .06em; margin: 0 -.06em; }
-.b-sub { font: 400 14.5px/1.5 H; color: var(--mut); max-width: 440px; margin-top: 18px; }
+.b-sub { font: 400 15.5px/1.5 H; color: var(--mut); max-width: 440px; margin-top: 18px; }
 .cascade { display: grid; gap: 14px; }
 .proof { display: flex; align-items: baseline; gap: 12px; border: 2px solid var(--ink); border-radius: 16px; padding: 10px 18px 12px; box-shadow: 4px 4px 0 var(--shadow); background: var(--paper); }
 .proof b { font: 800 50px/.95 B; letter-spacing: -.04em; }
-.proof span { font: 500 11px/1.4 M; }
+.proof span { font: 500 12px/1.4 M; }
 .proof:nth-child(1) { background: var(--primary); color: var(--on-primary); transform: rotate(-1.8deg); }
 .proof:nth-child(2) { background: var(--hl); color: var(--on-hl); transform: rotate(1.3deg); margin-left: 22px; }
 .proof:nth-child(3) { transform: rotate(-.8deg); }
@@ -81,6 +81,12 @@ mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-re
 .bar .t { height: 14px; border-radius: 99px; background: color-mix(in srgb, var(--ink) 10%, transparent); overflow: hidden; }
 .bar .t i { display: block; height: 100%; border-radius: 99px; }
 .cap { font: 400 10.5px/1.4 M; color: var(--mut); margin-top: 8px; }
+.stackcard .cap { margin-bottom: 16px; }
+.stackcard { display: flex; flex-direction: column; min-height: 318px; }
+.mini { display: grid; gap: 12px; margin-top: 4px; }
+.mini div { border-top: 1.5px solid var(--line); padding-top: 9px; display: grid; grid-template-columns: 1fr auto; column-gap: 8px; }
+.mini b { font: 800 15px B; letter-spacing: -.01em; }
+.mini p { grid-column: 1 / -1; font: 400 12px/1.4 H; color: var(--mut); margin-top: 2px; }
 .half { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; }
 .blocks { display: grid; gap: 3px; }
 .blocks div { display: flex; gap: 3px; }
@@ -128,16 +134,8 @@ mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-re
   </div>
 </div>
 
-<div class="shot" data-shot="status" style="width: 848px">
-  <div class="strip">
-    <span><i class="dot"></i>Open to internships and full-time roles</span>
-    <span>Bengaluru, India</span>
-    <span>Presenting at SPELLL, December 2026</span>
-  </div>
-</div>
-
 <!-- ============ papers ============ -->
-<div class="shot head" data-shot="head-papers" style="width: 848px">
+<div class="shot head" data-shot="head-papers" style="width: 424px">
   <span class="eyebrow">Research</span>
   <h2>Three papers</h2>
   <p>Each card opens a case study with the numbers, where they come from, and what didn’t work.</p>
@@ -177,32 +175,28 @@ mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-re
 </div>
 
 <!-- ============ builds ============ -->
-<div class="shot head" data-shot="head-builds" style="width: 848px">
+<div class="shot head" data-shot="head-builds" style="width: 424px">
   <span class="eyebrow">Things I made</span>
   <h2>Builds</h2>
   <p>Projects that run, including one that doesn’t fully work yet and says so.</p>
 </div>
 
-<div class="shot" data-shot="build-ids" style="width: 848px">
-  <div class="tray"><article class="card wide" style="padding: 22px 24px">
-    <div>
-      <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip ink">Built and working</span><span class="yr">2026</span></div>
-      <h3 style="font-size: 36px; margin-top: 14px">Zero-day intrusion detector</h3>
-      <p class="sum" style="max-width: 380px">An Isolation Forest trained only on normal traffic, paired with deterministic TCP/IP rules, watching live network flows in a dashboard.</p>
-      <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
+<div class="shot" data-shot="build-ids" style="width: 420px">
+  <div class="tray"><article class="card stackcard" style="padding: 20px">
+    <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip ink">Built and working</span><span class="yr">2026</span></div>
+    <h3 style="margin-top: 14px">Zero-day intrusion detector</h3>
+    <p class="sum">An Isolation Forest trained only on normal traffic, paired with TCP/IP rules, watching live network flows.</p>
+    <div class="bars" style="margin-top: 14px">
+      <div class="bar"><label><span>Isolation Forest, normal traffic only</span><b>87.2%</b></label><div class="t"><i style="width: 87.2%; background: var(--primary)"></i></div></div>
+      <div class="bar"><label><span>Random Forest, DDoS labels</span><b>44.5%</b></label><div class="t"><i style="width: 44.5%; background: var(--bad)"></i></div></div>
     </div>
-    <div>
-      <div class="bars">
-        <div class="bar"><label><span>Isolation Forest, normal traffic only</span><b>87.2%</b></label><div class="t"><i style="width: 87.2%; background: var(--primary)"></i></div></div>
-        <div class="bar"><label><span>Random Forest, trained on DDoS labels</span><b>44.5%</b></label><div class="t"><i style="width: 44.5%; background: var(--bad)"></i></div></div>
-      </div>
-      <p class="cap">Accuracy on PortScan traffic never seen in training (CIC-IDS-2017). ROC-AUC 0.964.</p>
-    </div>
+    <p class="cap">Accuracy on PortScan never seen in training. ROC-AUC 0.964.</p>
+    <span class="go" style="margin-top: auto; align-self: flex-start">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
   </article></div>
 </div>
 
 <div class="shot" data-shot="build-jenga" style="width: 420px">
-  <div class="tray"><article class="card half" style="min-height: 240px; padding: 20px">
+  <div class="tray"><article class="card half" style="min-height: 318px; padding: 20px">
     <div>
       <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip hl">Experimental</span><span class="yr">2026</span></div>
       <h3 style="margin-top: 14px">Jenga tower tracker</h3>
@@ -217,7 +211,7 @@ mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-re
 </div>
 
 <div class="shot" data-shot="build-sravaani" style="width: 420px">
-  <div class="tray"><article class="card half" style="min-height: 240px; padding: 20px">
+  <div class="tray"><article class="card half" style="min-height: 318px; padding: 20px">
     <div>
       <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip ink">Built and working</span><span class="yr">2026</span></div>
       <h3 style="margin-top: 14px">SraVaani Flow</h3>
@@ -232,26 +226,39 @@ mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-re
   </article></div>
 </div>
 
+<div class="shot" data-shot="build-more" style="width: 420px">
+  <div class="tray"><article class="card stackcard" style="padding: 20px">
+    <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip">Also built</span></div>
+    <h3 style="margin-top: 14px">Smaller projects</h3>
+    <div class="mini">
+      <div><b>Vision2Text</b><span class="yr">2025</span><p>Image captioning on Flickr8k. Xception features into an LSTM decoder, in TensorFlow and Keras.</p></div>
+      <div><b>CIFARNet</b><span class="yr">2025</span><p>A custom PyTorch CNN for CIFAR-10 with switchable BatchNorm to study training stability.</p></div>
+      <div><b>MailGuard</b><span class="yr">2024</span><p>Email spam classification with KNN, MinMax scaling and K-fold cross-validation.</p></div>
+    </div>
+  </article></div>
+</div>
+
 <!-- ============ tools ============ -->
-<div class="shot head" data-shot="head-tools" style="width: 848px">
+<div class="shot head" data-shot="head-tools" style="width: 424px">
   <span class="eyebrow">Tools</span>
   <h2>What I work with</h2>
   <p>Filled pills are used in the projects above.</p>
 </div>
 
-<div class="shot" data-shot="tools" style="width: 848px">
-  <div class="tools">
+<div class="shot" data-shot="tools-a" style="width: 420px"><div class="tools" style="grid-template-columns: 1fr; gap: 16px">
     <div><h4>Languages</h4><ul><li class="u">Python</li><li>C</li><li>Java</li><li>SQL</li><li>JavaScript</li></ul></div>
     <div><h4>Machine learning</h4><ul><li class="u">scikit-learn</li><li class="u">XGBoost</li><li class="u">Random Forest</li><li class="u">Isolation Forest</li><li>KNN</li></ul></div>
     <div><h4>Deep learning</h4><ul><li class="u">PyTorch</li><li class="u">TensorFlow</li><li class="u">Keras</li><li class="u">CNNs</li><li class="u">LSTMs</li></ul></div>
+  </div></div>
+
+<div class="shot" data-shot="tools-b" style="width: 420px"><div class="tools" style="grid-template-columns: 1fr; gap: 16px">
     <div><h4>NLP</h4><ul><li class="u">DeBERTa-v3</li><li class="u">Transformers</li><li>BERT</li><li class="u">Embeddings</li></ul></div>
     <div><h4>Vision</h4><ul><li class="u">OpenCV</li><li class="u">Real-ESRGAN</li><li class="u">GFPGAN</li><li class="u">Xception</li></ul></div>
     <div><h4>Systems</h4><ul><li class="u">FastAPI</li><li class="u">Docker</li><li class="u">Scapy</li><li>Linux</li><li>AWS</li><li>GCP</li></ul></div>
-  </div>
-</div>
+  </div></div>
 
 <!-- ============ contact ============ -->
-<div class="shot head" data-shot="head-contact" style="width: 848px">
+<div class="shot head" data-shot="head-contact" style="width: 424px">
   <span class="eyebrow">Contact</span>
   <h2>Let’s build something.</h2>
   <p>Open to internships and full-time roles. Email is fastest.</p>
