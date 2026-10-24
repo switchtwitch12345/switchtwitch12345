@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Profile README artwork</title>
+<style>
+/* Workshop, forest palette. Same tokens as the portfolio; dark values are a night-forest pair.
+   Every element carrying data-shot is exported as <name>-light.png and <name>-dark.png. */
+@font-face { font-family: B; src: url(fonts/bricolage.woff2); font-weight: 200 800; }
+@font-face { font-family: H; src: url(fonts/hanken.woff2); font-weight: 100 900; }
+@font-face { font-family: M; src: url(fonts/plex-400.woff2); font-weight: 400; }
+@font-face { font-family: M; src: url(fonts/plex-500.woff2); font-weight: 500; }
+
+:root {
+  --bg: #e4ebe1; --paper: #fbfdfa; --ink: #0e1712; --mut: #47554c; --line: #bccab9;
+  --primary: #0b6b4f; --on-primary: #ffffff; --hl: #ffc857; --on-hl: #0e1712; --bad: #e4572e;
+  --shadow: #0e1712; --key: #d9e3d6;
+}
+[data-theme='dark'] {
+  --bg: #101c15; --paper: #17261d; --ink: #eaf2e8; --mut: #9db0a3; --line: #2f4538;
+  --primary: #3dbb84; --on-primary: #07130c; --hl: #ffc857; --on-hl: #0e1712; --bad: #ff7a59;
+  --shadow: #050a07; --key: #22362a;
+}
+* { box-sizing: border-box; margin: 0; }
+body { background: transparent; padding: 20px; display: flex; flex-direction: column; gap: 20px; align-items: flex-start; font-family: H; color: var(--ink); -webkit-font-smoothing: antialiased; }
+.shot { padding: 0 8px 8px 0; flex: none; }
+
+/* double bezel: outer tray, inner card with concentric radii */
+.tray { border: 1.5px solid var(--line); border-radius: 28px; padding: 6px; }
+.card { background: var(--paper); border: 2px solid var(--ink); border-radius: 21px; box-shadow: 5px 5px 0 var(--shadow); padding: 18px 18px 16px; position: relative; overflow: hidden; }
+.chip { display: inline-block; font: 700 10.5px H; letter-spacing: .07em; text-transform: uppercase; padding: 3px 9px; border-radius: 6px; background: var(--primary); color: var(--on-primary); }
+.chip.hl { background: var(--hl); color: var(--on-hl); }
+.chip.ink { background: var(--ink); color: var(--paper); }
+.mono { font-family: M; }
+.row { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+.yr { font: 500 12px M; color: var(--mut); }
+h3 { font: 800 30px/1 B; letter-spacing: -.03em; margin: 12px 0 8px; }
+.sum { font: 400 13.5px/1.45 H; color: var(--mut); }
+.stats { display: flex; gap: 18px; margin-top: 14px; padding-top: 12px; border-top: 1.5px solid var(--line); }
+.stats b { display: block; font: 800 25px/1.05 B; letter-spacing: -.03em; }
+.stats span { font: 400 10.5px/1.3 M; color: var(--mut); display: block; max-width: 120px; }
+.go { display: inline-flex; align-items: center; gap: 10px; margin-top: 14px; background: var(--ink); color: var(--paper); font: 700 13px H; padding: 5px 5px 5px 15px; border-radius: 99px; }
+.go i { width: 24px; height: 24px; border-radius: 50%; background: color-mix(in srgb, var(--paper) 22%, transparent); display: grid; place-items: center; }
+.go svg { width: 12px; height: 12px; }
+.art { height: 54px; margin: 12px 0 0; display: flex; align-items: center; gap: 12px; }
+
+/* section heads */
+.head { padding: 26px 2px 4px; }
+.eyebrow { display: inline-block; font: 500 10.5px M; letter-spacing: .2em; text-transform: uppercase; padding: 4px 11px; border-radius: 99px; border: 1.5px solid var(--line); color: var(--mut); }
+.head h2 { font: 800 46px/1 B; letter-spacing: -.035em; margin: 12px 0 6px; }
+.head p { font: 400 15px/1.4 H; color: var(--mut); }
+
+/* banner */
+.banner { background: var(--bg); border: 2px solid var(--ink); border-radius: 22px; box-shadow: 6px 6px 0 var(--shadow); padding: 30px 32px; display: grid; grid-template-columns: minmax(0, 1fr) 270px; gap: 20px; align-items: center; min-height: 352px; position: relative; overflow: hidden; }
+.pill { display: inline-block; background: var(--ink); color: var(--paper); font: 700 14px H; padding: 6px 15px; border-radius: 99px; }
+.b-top { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.b-top .eyebrow { font-size: 9.5px; }
+.hi { font: 800 26px/1 B; letter-spacing: -.02em; color: var(--primary); margin-bottom: 8px; }
+.banner h1 { font: 800 64px/.94 B; letter-spacing: -.04em; }
+mark { background: linear-gradient(var(--hl), var(--hl)) 0 88% / 100% .9em no-repeat; color: var(--on-hl); padding: 0 .06em; margin: 0 -.06em; }
+.b-sub { font: 400 14.5px/1.5 H; color: var(--mut); max-width: 440px; margin-top: 18px; }
+.cascade { display: grid; gap: 14px; }
+.proof { display: flex; align-items: baseline; gap: 12px; border: 2px solid var(--ink); border-radius: 16px; padding: 10px 18px 12px; box-shadow: 4px 4px 0 var(--shadow); background: var(--paper); }
+.proof b { font: 800 50px/.95 B; letter-spacing: -.04em; }
+.proof span { font: 500 11px/1.4 M; }
+.proof:nth-child(1) { background: var(--primary); color: var(--on-primary); transform: rotate(-1.8deg); }
+.proof:nth-child(2) { background: var(--hl); color: var(--on-hl); transform: rotate(1.3deg); margin-left: 22px; }
+.proof:nth-child(3) { transform: rotate(-.8deg); }
+
+/* status strip */
+.strip { display: flex; flex-wrap: wrap; gap: 10px; padding: 14px 0 0; }
+.strip span { display: inline-flex; align-items: center; gap: 8px; font: 700 13px H; padding: 8px 15px; border-radius: 99px; border: 2px solid var(--ink); background: var(--paper); }
+.strip span:first-child { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.dot { width: 8px; height: 8px; border-radius: 50%; background: var(--hl); box-shadow: 0 0 0 3px color-mix(in srgb, var(--hl) 35%, transparent); }
+
+/* wide + half build cards */
+.wide { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 26px; align-items: center; }
+.bars { display: grid; gap: 10px; }
+.bar label { display: flex; justify-content: space-between; font: 500 11px M; color: var(--mut); margin-bottom: 4px; }
+.bar label b { color: var(--ink); font-weight: 500; }
+.bar .t { height: 14px; border-radius: 99px; background: color-mix(in srgb, var(--ink) 10%, transparent); overflow: hidden; }
+.bar .t i { display: block; height: 100%; border-radius: 99px; }
+.cap { font: 400 10.5px/1.4 M; color: var(--mut); margin-top: 8px; }
+.half { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 14px; align-items: center; }
+.blocks { display: grid; gap: 3px; }
+.blocks div { display: flex; gap: 3px; }
+.blocks i { width: 22px; height: 9px; border-radius: 2px; background: var(--primary); }
+.blocks i.r { background: var(--bad); }
+.keys { display: grid; gap: 8px; justify-items: start; }
+.key { font: 500 12px M; padding: 5px 11px 7px; border-radius: 8px; background: var(--key); border: 2px solid var(--ink); border-bottom-width: 5px; }
+.key small { font: 400 10px M; color: var(--mut); margin-left: 6px; }
+
+/* tools */
+.tools { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px 26px; padding-top: 6px; }
+.tools h4 { font: 500 10.5px M; letter-spacing: .16em; text-transform: uppercase; color: var(--mut); margin-bottom: 8px; }
+.tools ul { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; }
+.tools li { font: 500 12.5px H; padding: 3px 10px; border: 1.5px solid var(--ink); border-radius: 99px; background: var(--paper); }
+.tools li.u { background: var(--primary); color: var(--on-primary); border-color: var(--primary); }
+.legend { font: 400 11px M; color: var(--mut); margin-top: 16px; }
+.legend b { display: inline-block; width: 11px; height: 11px; border-radius: 50%; background: var(--primary); vertical-align: -1px; margin-right: 6px; }
+
+/* CTAs */
+.cta { display: flex; align-items: center; justify-content: space-between; border: 2px solid var(--ink); border-radius: 99px; box-shadow: 4px 4px 0 var(--shadow); padding: 11px 11px 11px 24px; background: var(--paper); font: 800 19px B; letter-spacing: -.02em; }
+.cta i { width: 36px; height: 36px; border-radius: 50%; background: color-mix(in srgb, currentColor 16%, transparent); display: grid; place-items: center; }
+.cta svg { width: 15px; height: 15px; }
+.cta.p { background: var(--primary); color: var(--on-primary); }
+.cta.y { background: var(--hl); color: var(--on-hl); }
+</style>
+</head>
+<body>
+
+<!-- ============ banner ============ -->
+<div class="shot" data-shot="banner" style="width: 848px">
+  <div class="tray" style="border-radius: 30px; padding: 7px">
+    <div class="banner">
+      <div>
+        <div class="b-top"><span class="pill">Mitul K M</span><span class="eyebrow">ML engineer · Bengaluru</span></div>
+        <p class="hi">Hi, I’m Mitul.</p>
+        <h1>I build things <mark>from the ground up</mark>.</h1>
+        <p class="b-sub">Hardware, models and services. I like the long slog of getting something to actually work, and I write down what didn’t.</p>
+      </div>
+      <div class="cascade">
+        <div class="proof"><b>3</b><span>papers accepted<br>SPELLL · IEEE CAI · SWSIoT</span></div>
+        <div class="proof"><b>2</b><span>internships<br>Avianco · RV University</span></div>
+        <div class="proof"><b>8.27</b><span>CGPA out of 10<br>RV University</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="shot" data-shot="status" style="width: 848px">
+  <div class="strip">
+    <span><i class="dot"></i>Open to internships and full-time roles</span>
+    <span>Bengaluru, India</span>
+    <span>Presenting at SPELLL, December 2026</span>
+  </div>
+</div>
+
+<!-- ============ papers ============ -->
+<div class="shot head" data-shot="head-papers" style="width: 848px">
+  <span class="eyebrow">Research</span>
+  <h2>Three papers</h2>
+  <p>Each card opens a case study with the numbers, where they come from, and what didn’t work.</p>
+</div>
+
+<div class="shot" data-shot="paper-fr3ak" style="width: 280px">
+  <div class="tray"><article class="card">
+    <div class="row"><span class="chip">Accepted · SPELLL 2026</span><span class="yr">2026</span></div>
+    <div class="art"><svg id="wheel" width="54" height="54" viewBox="0 0 54 54"></svg><span class="mono" style="font-size:10.5px;color:var(--mut)">8 emotion axes<br>per message</span></div>
+    <h3>FR3AK</h3>
+    <p class="sum">Maps every message to an 8-axis emotion vector, then tests whether the way those vectors drift helps spot manipulation.</p>
+    <div class="stats"><div><b>0.761</b><span>cosine, emotion encoder</span></div><div><b>0.711</b><span>AUROC vs 0.695 baseline</span></div></div>
+    <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
+  </article></div>
+</div>
+
+<div class="shot" data-shot="paper-c4ps" style="width: 280px">
+  <div class="tray"><article class="card">
+    <div class="row"><span class="chip">Accepted · IEEE CAI 2026</span><span class="yr">2026</span></div>
+    <div class="art"><svg id="pix" width="54" height="54" viewBox="0 0 54 54"></svg><svg width="16" height="12" viewBox="0 0 16 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M1 6h13M10 2l4 4-4 4"/></svg><svg id="smooth" width="54" height="54" viewBox="0 0 54 54"></svg></div>
+    <h3>C4PS</h3>
+    <p class="sum">Enhance, caption and translate an image in one command-line pipeline, running fully on your machine.</p>
+    <div class="stats"><div><b>0.2475</b><span>LPIPS vs 0.4091 bicubic</span></div><div><b>3</b><span>silent bugs found and fixed</span></div></div>
+    <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
+  </article></div>
+</div>
+
+<div class="shot" data-shot="paper-swsiot" style="width: 280px">
+  <div class="tray"><article class="card">
+    <div class="row"><span class="chip">Accepted · SWSIoT 2025</span><span class="yr">2025</span></div>
+    <div class="art"><svg id="hist" width="150" height="54" viewBox="0 0 150 54"></svg><span class="mono" style="font-size:10.5px;color:var(--mut)">byte entropy</span></div>
+    <h3>Static malware</h3>
+    <p class="sum">Two static pipelines classify Windows executables and URLs from cheap features, without running anything.</p>
+    <div class="stats"><div><b>96.4%</b><span>accuracy, PE files</span></div><div><b>93.5%</b><span>accuracy, URLs</span></div></div>
+    <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
+  </article></div>
+</div>
+
+<!-- ============ builds ============ -->
+<div class="shot head" data-shot="head-builds" style="width: 848px">
+  <span class="eyebrow">Things I made</span>
+  <h2>Builds</h2>
+  <p>Projects that run, including one that doesn’t fully work yet and says so.</p>
+</div>
+
+<div class="shot" data-shot="build-ids" style="width: 848px">
+  <div class="tray"><article class="card wide" style="padding: 22px 24px">
+    <div>
+      <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip ink">Built and working</span><span class="yr">2026</span></div>
+      <h3 style="font-size: 36px; margin-top: 14px">Zero-day intrusion detector</h3>
+      <p class="sum" style="max-width: 380px">An Isolation Forest trained only on normal traffic, paired with deterministic TCP/IP rules, watching live network flows in a dashboard.</p>
+      <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
+    </div>
+    <div>
+      <div class="bars">
+        <div class="bar"><label><span>Isolation Forest, normal traffic only</span><b>87.2%</b></label><div class="t"><i style="width: 87.2%; background: var(--primary)"></i></div></div>
+        <div class="bar"><label><span>Random Forest, trained on DDoS labels</span><b>44.5%</b></label><div class="t"><i style="width: 44.5%; background: var(--bad)"></i></div></div>
+      </div>
+      <p class="cap">Accuracy on PortScan traffic never seen in training (CIC-IDS-2017). ROC-AUC 0.964.</p>
+    </div>
+  </article></div>
+</div>
+
+<div class="shot" data-shot="build-jenga" style="width: 420px">
+  <div class="tray"><article class="card half" style="min-height: 240px; padding: 20px">
+    <div>
+      <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip hl">Experimental</span><span class="yr">2026</span></div>
+      <h3 style="margin-top: 14px">Jenga tower tracker</h3>
+      <p class="sum">iPhone LiDAR and a marker mat paint each block green or red, live. Spotting the pulled block is still unsolved.</p>
+      <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
+    </div>
+    <div>
+      <div class="blocks" id="blocks"></div>
+      <p class="cap" style="text-align: center; white-space: nowrap">red: may not<br>green: may pull</p>
+    </div>
+  </article></div>
+</div>
+
+<div class="shot" data-shot="build-sravaani" style="width: 420px">
+  <div class="tray"><article class="card half" style="min-height: 240px; padding: 20px">
+    <div>
+      <div class="row" style="justify-content: flex-start; gap: 12px"><span class="chip ink">Built and working</span><span class="yr">2026</span></div>
+      <h3 style="margin-top: 14px">SraVaani Flow</h3>
+      <p class="sum">Voice dictation for English and Indian languages on a Mac. Transcribes locally and pastes where you were typing.</p>
+      <span class="go">Case study <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></span>
+    </div>
+    <div class="keys">
+      <div class="key">Shift+R<small>hold</small></div>
+      <div class="key">F9<small>toggle</small></div>
+      <div class="key">F11<small>paste</small></div>
+    </div>
+  </article></div>
+</div>
+
+<!-- ============ tools ============ -->
+<div class="shot head" data-shot="head-tools" style="width: 848px">
+  <span class="eyebrow">Tools</span>
+  <h2>What I work with</h2>
+  <p>Filled pills are used in the projects above.</p>
+</div>
+
+<div class="shot" data-shot="tools" style="width: 848px">
+  <div class="tools">
+    <div><h4>Languages</h4><ul><li class="u">Python</li><li>C</li><li>Java</li><li>SQL</li><li>JavaScript</li></ul></div>
+    <div><h4>Machine learning</h4><ul><li class="u">scikit-learn</li><li class="u">XGBoost</li><li class="u">Random Forest</li><li class="u">Isolation Forest</li><li>KNN</li></ul></div>
+    <div><h4>Deep learning</h4><ul><li class="u">PyTorch</li><li class="u">TensorFlow</li><li class="u">Keras</li><li class="u">CNNs</li><li class="u">LSTMs</li></ul></div>
+    <div><h4>NLP</h4><ul><li class="u">DeBERTa-v3</li><li class="u">Transformers</li><li>BERT</li><li class="u">Embeddings</li></ul></div>
+    <div><h4>Vision</h4><ul><li class="u">OpenCV</li><li class="u">Real-ESRGAN</li><li class="u">GFPGAN</li><li class="u">Xception</li></ul></div>
+    <div><h4>Systems</h4><ul><li class="u">FastAPI</li><li class="u">Docker</li><li class="u">Scapy</li><li>Linux</li><li>AWS</li><li>GCP</li></ul></div>
+  </div>
+</div>
+
+<!-- ============ contact ============ -->
+<div class="shot head" data-shot="head-contact" style="width: 848px">
+  <span class="eyebrow">Contact</span>
+  <h2>Let’s build something.</h2>
+  <p>Open to internships and full-time roles. Email is fastest.</p>
+</div>
+
+<div class="shot" data-shot="cta-site" style="width: 276px"><div class="cta p">Portfolio <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
+<div class="shot" data-shot="cta-email" style="width: 276px"><div class="cta y">Email me <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
+<div class="shot" data-shot="cta-linkedin" style="width: 276px"><div class="cta">LinkedIn <i><svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 9l6-6M4 3h5v5"/></svg></i></div></div>
+
+<script>
+// small deterministic drawings used inside cards
+const S = 'http://www.w3.org/2000/svg';
+const css = (v) => getComputedStyle(document.body).getPropertyValue(v);
+function el(tag, attrs, parent) { const e = document.createElementNS(S, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+function draw() {
+  // FR3AK: 8-axis wheel
+  const w = document.getElementById('wheel'); w.replaceChildren();
+  const radii = [0.95, 0.72, 0.36, 0.52, 0.28, 0.22, 0.44, 0.8];
+  const fills = ['var(--hl)', 'var(--primary)', 'var(--primary)', 'var(--primary)', 'var(--primary)', 'var(--primary)', 'var(--bad)', 'var(--hl)'];
+  el('circle', { cx: 27, cy: 27, r: 26, fill: 'none', stroke: 'var(--line)', 'stroke-width': 1.2 }, w);
+  radii.forEach((r, i) => {
+    const a0 = ((i * 45 - 112.5) * Math.PI) / 180, a1 = (((i + 1) * 45 - 112.5) * Math.PI) / 180, R = 26 * r;
+    const p = (a) => `${(27 + R * Math.cos(a)).toFixed(2)} ${(27 + R * Math.sin(a)).toFixed(2)}`;
+    el('path', { d: `M27 27 L${p(a0)} A${R} ${R} 0 0 1 ${p(a1)} Z`, fill: fills[i], stroke: 'var(--paper)', 'stroke-width': 1.2, opacity: 0.95 }, w);
+  });
+  // C4PS: pixelated -> smooth
+  const px = document.getElementById('pix'); px.replaceChildren();
+  const tones = [0.25, 0.5, 0.75, 0.4, 0.9, 0.6];
+  for (let y = 0; y < 6; y++) for (let x = 0; x < 6; x++) {
+    const t = tones[(x * 3 + y * 5 + (x * y)) % tones.length];
+    el('rect', { x: x * 9, y: y * 9, width: 9, height: 9, fill: 'var(--primary)', opacity: t }, px);
+  }
+  el('rect', { x: 0.75, y: 0.75, width: 52.5, height: 52.5, rx: 4, fill: 'none', stroke: 'var(--ink)', 'stroke-width': 1.5 }, px);
+  const sm = document.getElementById('smooth'); sm.replaceChildren();
+  const defs = el('defs', {}, sm); const g = el('radialGradient', { id: 'g' + Math.random().toString(36).slice(2, 6), cx: '35%', cy: '35%', r: '80%' }, defs);
+  el('stop', { offset: '0', 'stop-color': 'var(--hl)' }, g); el('stop', { offset: '.55', 'stop-color': 'var(--primary)' }, g); el('stop', { offset: '1', 'stop-color': 'var(--primary)', 'stop-opacity': .6 }, g);
+  el('rect', { x: 0.75, y: 0.75, width: 52.5, height: 52.5, rx: 4, fill: `url(#${g.id})`, stroke: 'var(--ink)', 'stroke-width': 1.5 }, sm);
+  // SWSIoT: entropy histogram
+  const h = document.getElementById('hist'); h.replaceChildren();
+  const hs = [6, 9, 12, 8, 14, 11, 16, 10, 13, 18, 22, 30, 38, 46, 40, 24];
+  hs.forEach((v, i) => el('rect', { x: i * 9.2, y: 52 - v, width: 7, height: v, rx: 1.5, fill: i >= 11 ? 'var(--bad)' : 'var(--primary)', opacity: i >= 11 ? 1 : 0.8 }, h));
+  // Jenga: 9 layers, bottom 6 green, top 3 red
+  const b = document.getElementById('blocks'); b.replaceChildren();
+  for (let r = 0; r < 9; r++) { const d = document.createElement('div'); d.style.paddingLeft = r % 2 ? '0' : '0'; for (let c = 0; c < 3; c++) { const i = document.createElement('i'); if (r < 3) i.className = 'r'; d.appendChild(i); } b.appendChild(d); }
+}
+draw();
+</script>
+</body>
+</html>

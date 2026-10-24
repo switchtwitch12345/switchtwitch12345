@@ -1,0 +1,7 @@
+{
+  "name": "profile-readme-assets",
+  "private": true,
+  "type": "module",
+  "scripts": { "build": "node src/build.mjs && node src/readme.mjs" },
+  "devDependencies": { "playwright": "1.54.2" }
+}
