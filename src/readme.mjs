@@ -5,9 +5,11 @@ import { fileURLToPath } from 'node:url';
 
 const root = path.dirname(path.dirname(fileURLToPath(import.meta.url)));
 const SITE = 'https://switchtwitch12345.github.io';
+// GitHub caches README images by URL, so a changed file with the same name can show stale. Bump on every build.
+const V = Date.now().toString(36);
 
 const img = (name, alt, width, href) => {
-  const tag = `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/${name}-dark.png"><img src="assets/${name}-light.png" alt="${alt}" width="${width}"></picture>`;
+  const tag = `<picture><source media="(prefers-color-scheme: dark)" srcset="assets/${name}-dark.png?v=${V}"><img src="assets/${name}-light.png?v=${V}" alt="${alt}" width="${width}"></picture>`;
   return href ? `<a href="${href}">${tag}</a>` : tag;
 };
 
